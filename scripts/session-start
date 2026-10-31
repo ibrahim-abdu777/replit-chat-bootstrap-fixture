@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+source_name=${1:-unspecified}
+mkdir -p .agent-eval
+printf '%s %s\n' "$source_name" "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" >> .agent-eval/session-start.log
+printf '{"status":"ok","source":"%s"}\n' "$source_name"
